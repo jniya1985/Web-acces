@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phi Phi Islands Map</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+	<style>
+		#map {
+			height: 600px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+		mapboxgl.accessToken = 'YOUR_ACCESS_TOKEN_HERE';
+		var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/streets-v11',
+			center: [98.8378, 7.7407], // Phi Phi Islands coordinates
+			zoom: 12
+		});
+
+		var attractions = [
+			{
+				name: 'Phi Phi Islands',
+				coords: [98.8378, 7.7407],
+				description: 'Phi Phi Islands are a group of islands in Thailand between the large island of Phuket and the Malacca Coastal Strait of Thailand.'
+			},
+			{
+				name: 'Monkey Beach',
+				coords: [98.7521, 7.7407],
+				description: 'Monkey Beach is a beautiful beach on Phi Phi Islands, where visitors can interact with wild monkeys.'
+			},
+			{
+				name: 'Maya Bay',
+				coords: [98.7639, 7.6609],
+				description: 'Maya Bay is a stunning bay on Phi Phi Islands, famous for its crystal-clear waters and white sandy beach.'
+			},
+			{
+				name: 'Viking Cave',
+				coords: [98.8065, 7.6981],
+				description: 'Viking Cave is a natural cave on Phi Phi Islands, where visitors can see ancient rock paintings and swallows nests.'
+			}
+		];
+
+		attractions.forEach(function(attraction) {
+			var marker = new mapboxgl.Marker()
+				.setLngLat(attraction.coords)
+				.setPopup(new mapboxgl
